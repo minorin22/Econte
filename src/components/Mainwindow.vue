@@ -37,7 +37,7 @@
       <div class="box" id="timeline">
         <h5 class="tool_title"><font-awesome-icon icon="film" /> Timeline</h5>
       </div>
-      <footer class="toolbar toolbar-footer">
+      <footer>
         <h1 class="title">Footer</h1>
       </footer>
     </div>
@@ -46,8 +46,6 @@
 
 <script>
 import { Sketch } from 'vue-color'
-//const VueColor = window.VueColor,
-//      Sketch = VueColor.Sketch;
 export default({
   el: '#app',
   components: {
@@ -66,7 +64,6 @@ export default({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-@import "../../photon/css/photon.css";
 @import "../main.css";
 
 .vc-sketch {
