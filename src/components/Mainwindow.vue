@@ -16,10 +16,7 @@
         <div class="box" id="toolproperty">
           <h5 class="tool_title"><font-awesome-icon icon="paint-brush" /> Tool Property</h5>
         </div>
-        <div class="box" id="color">
-          <h5 class="tool_title"><font-awesome-icon icon="palette" /> Color</h5>
-          <sketch-picker :value="colors"></sketch-picker>
-        </div>
+        <Color></Color>
       </div>
       <div class="box" id="storyboard">
       </div>
@@ -45,31 +42,16 @@
 </template>
 
 <script>
-import { Sketch } from 'vue-color'
-export default({
-  el: '#app',
+import Color from './Color.vue'
+
+export default {
   components: {
-   'sketch-picker': Sketch,
-  },
-  data() {
-  return {
-   colors: {
-     hex: '#1f32a6',
-     a: 1
-   }
-    }
- }
-});
+    Color
+  }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 @import "../main.css";
-
-.vc-sketch {
-  background: transparent !important;
-  border-radius: 0% !important;
-  box-shadow: none !important;
-  padding-top: 0 !important;
-}
 </style>
