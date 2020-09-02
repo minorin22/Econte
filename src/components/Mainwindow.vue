@@ -1,5 +1,5 @@
 <template>
-    <body>
+    
     <div id="container">
       <Toolbar></Toolbar>
       <div class="left_tools">
@@ -18,7 +18,7 @@
         <h1 class="title">Footer</h1>
       </footer>
     </div>
-  </body>
+  
 </template>
 
 <script>
