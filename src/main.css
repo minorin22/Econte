@@ -7,7 +7,7 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: system, -apple-system, ".SFNSDisplay-Regular", "Helvetica Neue", Helvetica, "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
   font-size: 13px;
   line-height: 1.6;
   color: #3a3a3a;
@@ -42,18 +42,12 @@ h6 {
 select {
   display: inline-block;
   width: 100%;
-  min-height: 25px;
-  padding: 5px 10px;
+  padding: 2px 8px;
   font-size: 13px;
-  line-height: 1.6;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border: 1px solid #00000038;
   border-radius: 4px;
   outline: none;
-}
-select:focus {
-  border-color: #6db3fd;
-  box-shadow: 3px 3px 0 #6db3fd, -3px -3px 0 #6db3fd, -3px 3px 0 #6db3fd, 3px -3px 0 #6db3fd;
 }
 #container {
   width: 100%;
@@ -67,6 +61,8 @@ select:focus {
 .box {
   border: 1px solid #00000038;
   border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
 }
 #toolbar {
   grid-column: 1;
@@ -92,7 +88,6 @@ select:focus {
 #timeline {
   grid-column: 2 / 5;
   grid-row: 2;
-  overflow: scroll;
 }
 footer {
   grid-column: 1 / 5;
@@ -115,11 +110,9 @@ footer {
 }
 #outline {
   grid-row: 1;
-  overflow: scroll;
 }
 #toolproperty {
   grid-row: 2;
-  overflow: scroll;
 }
 #color {
   grid-row: 3;
@@ -132,7 +125,6 @@ footer {
 }
 #layer {
   grid-row: 3;
-  overflow: scroll;
 }
 .tool_title {
   margin: 0 auto 0 6px;
@@ -144,4 +136,99 @@ footer {
 }
 .tool_icon:hover {
   color: #3a3a3aa8;
+}
+.property {
+  margin: 4px 10px;
+}
+.property dt {
+  float: left;
+  line-height: 28px;
+}
+.property dd {
+  line-height: 28px;
+}
+.slider {
+  width: 100%;
+}
+.slider input[type="value"] {
+  -webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+  background-color: #fff;
+  border: 1px solid #00000038;
+  float: right;
+  height: 18px;
+  margin-top: 3px;
+  width: 20%;
+}
+.slider input[type="value"]:focus {
+  outline: 0;
+}
+.slider input[type="range"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #00000038;
+  width: 70%;
+  height: 3px;
+  border-radius: 5px;
+  outline: none;
+  vertical-align: middle ;
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 14px;
+  height: 14px;
+  display: block;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #00000038;
+  -webkit-border-radius: 50%;
+}
+input[type=checkbox] {
+  display: none;
+}
+.checkbox {
+box-sizing: border-box;
+position: relative;
+display: inline-block;
+border-radius: 8px;
+background-color: #ffffff;
+vertical-align: middle;
+cursor: pointer;
+}
+.checkbox:after {
+position: absolute;
+top: 50%;
+left: 15px;
+display: block;
+margin-top: -10px;
+width: 16px;
+height: 16px;
+border: 1px solid #00000038;
+border-radius: 2px;
+content: '';
+}
+.checkbox:before {
+position: absolute;
+top: 50%;
+left: 20px;
+display: block;
+margin-top: -9px;
+width: 5px;
+height: 9px;
+border-right: 3px solid #2A8CFF;
+border-bottom: 3px solid #2A8CFF;
+content: '';
+opacity: 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+input[type=checkbox]:checked + .checkbox:before {
+opacity: 1;
 }

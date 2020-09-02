@@ -1,5 +1,7 @@
 <template>
-  <Mainwindow></Mainwindow>
+  <div id="app">
+    <Mainwindow></Mainwindow>
+  </div>
 </template>
 
 <script>
