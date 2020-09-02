@@ -8,7 +8,6 @@
 <script>
 import { Sketch } from 'vue-color'
 export default({
-  el: '#app',
   components: {
    'sketch-picker': Sketch,
   },

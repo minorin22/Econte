@@ -1,39 +1,19 @@
 <template>
     <body>
     <div id="container">
-      <div class="box" id="toolbar">
-        <font-awesome-icon class="tool_icon" icon="mouse-pointer" />
-        <font-awesome-icon class="tool_icon" icon="paint-brush" />
-        <font-awesome-icon class="tool_icon" icon="pen-fancy" />
-        <font-awesome-icon class="tool_icon" icon="eraser" />
-        <font-awesome-icon class="tool_icon" icon="eye-dropper" />
-        <font-awesome-icon class="tool_icon" icon="search" />
-      </div>
+      <Toolbar></Toolbar>
       <div class="left_tools">
-        <div class="box" id="outline">
-          <h5 class="tool_title"><font-awesome-icon icon="list" /> Outline</h5>
-        </div>
-        <div class="box" id="toolproperty">
-          <h5 class="tool_title"><font-awesome-icon icon="paint-brush" /> Tool Property</h5>
-        </div>
+        <Outline></Outline>
+        <Toolproperty></Toolproperty>
         <Color></Color>
       </div>
-      <div class="box" id="storyboard">
-      </div>
+      <Storyboard></Storyboard>
       <div class="right_tools">
-        <div class="box" id="effect">
-          <h5 class="tool_title"><font-awesome-icon icon="magic" /> Effect</h5>
-        </div>
-        <div class="box" id="camerawork">
-          <h5 class="tool_title"><font-awesome-icon icon="video" /> Camera Work</h5>
-        </div>
-        <div class="box" id="layer">
-          <h5 class="tool_title"><font-awesome-icon icon="layer-group" /> Layer</h5>
-        </div>
+        <Effect></Effect>
+        <Camerawork></Camerawork>
+        <Layer></Layer>
       </div>
-      <div class="box" id="timeline">
-        <h5 class="tool_title"><font-awesome-icon icon="film" /> Timeline</h5>
-      </div>
+      <Timeline></Timeline>
       <footer>
         <h1 class="title">Footer</h1>
       </footer>
@@ -42,11 +22,18 @@
 </template>
 
 <script>
-import Color from './Color.vue'
-
+import Toolbar from './Toolbar'
+import Outline from './Outline'
+import Toolproperty from './Toolproperty'
+import Color from './Color'
+import Storyboard from './Storyboard'
+import Effect from './Effect'
+import Camerawork from './Camerawork'
+import Layer from './Layer'
+import Timeline from './Timeline'
 export default {
   components: {
-    Color
+    Toolbar,Outline,Toolproperty,Color,Storyboard,Effect,Camerawork,Layer,Timeline
   }
 }
 </script>
