@@ -38,7 +38,6 @@
 <style scoped>
 .property dd{
   margin-left: 76px;
-  /* width: 124px; */
 }
 .checkbox {
   margin-left: 90px;
