@@ -41,4 +41,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 @import "../main.css";
+body {
+  background-color: #2D2D2D;
+}
+body, select, .vc-input__input,input[type="value"], .vc-input__label {
+  color: #FFFFFFE0!important;
+}
+.tool_icon:hover {
+  color: #ffffffa8;
+}
+#storyboard, select, input[type="value"], input[type="range"]::-webkit-slider-thumb, .checkbox, .vc-input__input {
+  background-color: #212121;
+}
+.box, select, input[type="value"], .checkbox:after, .vc-input__input {
+  border: 1px solid #00000038;
+}
 </style>

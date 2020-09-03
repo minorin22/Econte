@@ -70,8 +70,6 @@ input[type="value"] {
   -webkit-appearance: none;
    -moz-appearance: none;
         appearance: none;
-  background-color: #fff;
-  border: 1px solid #00000038;
   height: 18px;
   width: 38px;
 }
