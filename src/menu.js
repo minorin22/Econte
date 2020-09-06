@@ -1,4 +1,4 @@
-const {BrowserWindow, Menu, app, shell, dialog} = require('electron')
+const { BrowserWindow, Menu, app, shell, dialog } = require('electron')
 
 let template = [{
   label: 'File',
@@ -6,15 +6,16 @@ let template = [{
     label: 'New',
     accelerator: 'CmdOrCtrl+N',
     role: 'new'
-  },{
+  }, {
     label: 'Open',
     accelerator: 'CmdOrCtrl+O',
-    role: 'open'
-  },{
+    role: 'open',
+    click: openFile,
+  }, {
     label: 'Save',
     accelerator: 'CmdOrCtrl+S',
     role: 'save'
-  },{
+  }, {
     label: 'Save As...',
     accelerator: 'Shift+CmdOrCtrl+S',
     role: 'saveas'
@@ -105,7 +106,7 @@ let template = [{
           buttons: ['Ok'],
           message: 'This demo is for the Menu section, showing how to create a clickable menu item in the application menu.'
         }
-        dialog.showMessageBox(focusedWindow, options, function () {})
+        dialog.showMessageBox(focusedWindow, options, function () { })
       }
     }
   }]
@@ -142,7 +143,7 @@ let template = [{
   }]
 }]
 
-function addUpdateMenuItems (items, position) {
+function addUpdateMenuItems(items, position) {
   if (process.mas) return
 
   const version = app.getVersion()
@@ -173,7 +174,7 @@ function addUpdateMenuItems (items, position) {
   items.splice.apply(items, [position, 0].concat(updateItems))
 }
 
-function findReopenMenuItem () {
+function findReopenMenuItem() {
   const menu = Menu.getApplicationMenu()
   if (!menu) return
 
@@ -188,6 +189,24 @@ function findReopenMenuItem () {
     }
   })
   return reopenMenuItem
+}
+
+// ファイルを開く
+function openFile() {
+  dialog.showOpenDialog({
+    properties: ['openFile']
+  }).then(result => {
+    console.log(result)
+
+    const filePath = result.filePaths[0]
+    console.log(filePath)
+
+    // Vue側にファイルパスを送信する
+    const window = BrowserWindow.getFocusedWindow()
+    window.webContents.send('openFile', filePath);
+  }).catch(err => {
+    console.log(err)
+  })
 }
 
 if (process.platform === 'darwin') {
