@@ -14,7 +14,8 @@ let template = [{
   }, {
     label: 'Save',
     accelerator: 'CmdOrCtrl+S',
-    role: 'save'
+    role: 'save',
+    click: saveFile,
   }, {
     label: 'Save As...',
     accelerator: 'Shift+CmdOrCtrl+S',
@@ -198,12 +199,38 @@ function openFile() {
   }).then(result => {
     console.log(result)
 
+    if (result.canceled) {
+      return
+    }
+
     const filePath = result.filePaths[0]
     console.log(filePath)
 
     // Vue側にファイルパスを送信する
     const window = BrowserWindow.getFocusedWindow()
     window.webContents.send('openFile', filePath);
+  }).catch(err => {
+    console.log(err)
+  })
+}
+
+// ファイルに保存する
+function saveFile() {
+  dialog.showSaveDialog({
+    properties: ['openFile']
+  }).then(result => {
+    console.log(result)
+
+    if (result.canceled) {
+      return
+    }
+
+    const filePath = result.filePath
+    console.log(filePath)
+
+    // Vue側にファイル保存の命令を送信する
+    const window = BrowserWindow.getFocusedWindow()
+    window.webContents.send('saveFile', filePath);
   }).catch(err => {
     console.log(err)
   })
