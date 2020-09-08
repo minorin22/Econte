@@ -27,11 +27,26 @@ export default {
     },
   },
   mounted: function () {
-    // Electron側からファイルパスを受け取る
+    // ファイルを開く
+    //Electron側からファイルパスを受け取る
     ipcRenderer.on("openFile", (event, filePath) => {
       console.log(filePath);
       // filepathをdataにセットする
       this.filePath = filePath;
+    });
+
+    // ファイルに保存する
+    // Electron側からファイルパスを受け取る
+    ipcRenderer.on("saveFile", (event, filePath) => {
+      console.log(filePath);
+
+      if (this.htmlText === "") {
+        alert("保存するデータがありません");
+        return;
+      }
+
+      // ファイルに保存する
+      fs.writeFileSync(filePath, this.htmlText, "utf-8");
     });
   },
   methods: {
