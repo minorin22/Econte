@@ -195,7 +195,11 @@ function findReopenMenuItem() {
 // ファイルを開く
 function openFile() {
   dialog.showOpenDialog({
-    properties: ['openFile']
+    properties: ['openFile'],
+    filters: [
+      { name: 'htmlファイル', extensions: ['html'] },
+      { name: 'すべてのファイル', extensions: ['*'] },
+    ]
   }).then(result => {
     console.log(result)
 
@@ -217,7 +221,11 @@ function openFile() {
 // ファイルに保存する
 function saveFile() {
   dialog.showSaveDialog({
-    properties: ['openFile']
+    properties: ['openFile'],
+    filters: [
+      { name: 'htmlファイル', extensions: ['html'] },
+      { name: 'すべてのファイル', extensions: ['*'] },
+    ]
   }).then(result => {
     console.log(result)
 
