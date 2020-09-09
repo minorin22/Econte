@@ -1,5 +1,5 @@
 <template>
-  <div class="box" id="storyboard" v-html="htmlText"></div>
+  <div class="box" id="storyboard" v-html="body"></div>
 </template>
 
 <script>
@@ -9,30 +9,25 @@ const fs = remote.require("fs");
 export default {
   data: function () {
     return {
-      filePath: "",
+      bodyBefore: "",
+      body: "",
+      bodyAfter: "",
     };
-  },
-  computed: {
-    htmlText: function () {
-      if (this.filePath === "") {
-        return "";
-      }
-
-      // ファイルデータを読み込む
-      const data = fs.readFileSync(this.filePath, "utf-8");
-
-      // bodyのみを取り出す
-      const bodyText = this.extractText(data, "<body>", "</body>");
-      return bodyText;
-    },
   },
   mounted: function () {
     // ファイルを開く
     //Electron側からファイルパスを受け取る
     ipcRenderer.on("openFile", (event, filePath) => {
       console.log(filePath);
-      // filepathをdataにセットする
-      this.filePath = filePath;
+
+      // ファイルデータを読み込む
+      if (filePath === "") {
+        return "";
+      }
+      const html = fs.readFileSync(filePath, "utf-8");
+
+      // htmlをbodyとそれ以外に分割する
+      this.splitHtml(html);
     });
 
     // ファイルに保存する
@@ -46,21 +41,22 @@ export default {
       }
 
       // ファイルに保存する
-      fs.writeFileSync(filePath, this.htmlText, "utf-8");
+      const html = this.bodyBefore + this.body + this.bodyAfter;
+      fs.writeFileSync(filePath, html, "utf-8");
     });
   },
   methods: {
-    extractText: function (text, start, end) {
-      // startの文字の位置
-      const startPos = text.indexOf(start) + start.length;
+    splitHtml: function (html) {
+      // <body>の後ろの文字の位置
+      const startPos = html.indexOf("<body>") + "<body>".length;
 
-      // endの文字の位置
-      const endPos = text.indexOf(end);
+      // </body>の前の文字の位置
+      const endPos = html.indexOf("</body>");
 
-      // 間の文字列を切り取る
-      const result = text.slice(startPos, endPos);
-
-      return result;
+      // bodyタグで文字列を分割する
+      this.bodyBefore = html.slice(0, startPos);
+      this.body = html.slice(startPos, endPos);
+      this.bodyAfter = html.slice(endPos, html.length);
     },
   },
 };
