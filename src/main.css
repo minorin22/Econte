@@ -1,0 +1,242 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  background-color: #f2f2f2;
+}
+body, select, .vc-input__input,input[type="value"], .vc-input__label {
+  color: #3a3a3a;
+}
+.tool_icon:hover {
+  opacity: 0.7;
+}
+#storyboard, select, input[type="value"], input[type="range"]::-webkit-slider-thumb, .checkbox, .vc-input__input {
+  background-color: #fff;
+}
+.box, select, input[type="value"], .checkbox:after, .vc-input__input {
+  border: 1px solid #00000038;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 12px;
+}
+select {
+  display: inline-block;
+  width: 100%;
+  padding: 2px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  outline: none;
+}
+#container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 50px 222px auto 262px;
+  grid-template-rows: auto 246px 24px;
+}
+.box {
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+}
+#toolbar {
+  grid-column: 1;
+  grid-row: 1 / 3;
+}
+.left_tools {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  grid-template-rows: auto 150px 321px;
+}
+#storyboard {
+  grid-column: 3;
+  grid-row: 1;
+}
+.right_tools {
+  grid-column: 4;
+  grid-row: 1;
+  display: grid;
+  grid-template-rows: 152px 152px auto;
+}
+#timeline {
+  grid-column: 2 / 5;
+  grid-row: 2;
+}
+footer {
+  grid-column: 1 / 5;
+  grid-row: 3;
+  min-height: 22px;
+  border-top: 1px solid #00000038;
+  -webkit-app-region: drag;
+}
+.title {
+  margin: 0;
+  font-size: 12px;
+  /* font-weight: 400; */
+  text-align: center;
+  cursor: default;
+}
+#outline {
+  grid-row: 1;
+}
+#toolproperty {
+  grid-row: 2;
+}
+#color {
+  grid-row: 3;
+}
+#effect {
+  grid-row: 1;
+}
+#camerawork {
+  grid-row: 2;
+}
+#layer {
+  grid-row: 3;
+}
+.tool_title {
+  margin: 0 auto 0 6px;
+}
+.tool_icon {
+  font-size: 22px;
+  display: block;
+  margin: 26px auto;
+}
+.property {
+  margin: 4px 10px;
+}
+.property dt {
+  float: left;
+  line-height: 28px;
+}
+.property dd {
+  line-height: 28px;
+}
+.slider {
+  width: 100%;
+}
+.slider input[type="value"] {
+  -webkit-appearance: none;
+   -moz-appearance: none;
+        appearance: none;
+  float: right;
+  height: 18px;
+  margin-top: 3px;
+  width: 20%;
+}
+input[type="value"]:focus {
+  outline: 0;
+}
+.slider input[type="range"] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #00000038;
+  width: 70%;
+  height: 3px;
+  border-radius: 5px;
+  outline: none;
+  vertical-align: middle ;
+}
+.slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 14px;
+  height: 14px;
+  display: block;
+  border-radius: 50%;
+  border: 1px solid #00000038;
+  -webkit-border-radius: 50%;
+}
+input[type=checkbox] {
+  display: none;
+}
+.checkbox {
+box-sizing: border-box;
+position: relative;
+display: inline-block;
+border-radius: 8px;
+vertical-align: middle;
+cursor: pointer;
+}
+.checkbox:after {
+position: absolute;
+top: 50%;
+left: 15px;
+display: block;
+margin-top: -10px;
+width: 16px;
+height: 16px;
+border-radius: 2px;
+content: '';
+}
+.checkbox:before {
+position: absolute;
+top: 50%;
+left: 20px;
+display: block;
+margin-top: -9px;
+width: 5px;
+height: 9px;
+border-right: 3px solid #2A8CFF;
+border-bottom: 3px solid #2A8CFF;
+content: '';
+opacity: 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+input[type=checkbox]:checked + .checkbox:before {
+opacity: 1;
+}
+.vc-input__input {
+  box-shadow: none!important;
+  border: 1px solid #00000038!important;
+}
+.vc-sketch-presets {
+  border-top: 1px solid #00000038!important;
+}
+.vc-sketch-active-color {
+  box-shadow: none!important;
+  border-radius: 0%!important;
+}
+.vc-alpha-gradient {
+  border-radius: 0%!important;
+}
